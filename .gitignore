@@ -1,0 +1,7 @@
+*.sh
+*.php
+phpunit.xml
+assets/
+includes/
+languages/
+templates/
