@@ -1,5 +1,5 @@
 <?php
-/**
+/*
 Plugin Name: EDD Support Tickets
 Plugin URI:	https://cosmicplugins.com/downloads/edd-support-tickets/
 Description: Support ticket system which allows access only to your Easy Digital Downloads customers.
@@ -10,6 +10,8 @@ License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: edd-support-tickets
 Domain Path: languages
+
+Copyright 2016 Isabel Castillo
 
 EDD Support Tickets is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
