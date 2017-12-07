@@ -33,7 +33,7 @@ if ( ! defined( 'WPINC' ) ) {
 			 * Output the field
 			 */
 			if ( method_exists( 'EDDSTIX_Custom_Fields_Display', $option['args']['callback'] ) ) {
-				EDDSTIX_Custom_Fields_Display::$option['args']['callback']( $option );
+				EDDSTIX_Custom_Fields_Display::{$option['args']['callback']}( $option );
 			}
 			do_action( 'eddstix_display_custom_fields', $option );
 		}
