@@ -29,7 +29,7 @@ class EDD_Support_Tickets {
 
 			// Generate the object used for the custom loop for displaying ticket replies
 			add_action( 'wp', array( $this, 'get_replies_object' ), 10, 0 );
-			add_action( 'plugins_loaded', array( $this, 'load_textdomain' ), 11, 0 );
+			add_action( 'init', array( $this, 'load_textdomain' ) );
 			add_action( 'init', array( $this, 'init' ), 11, 0 );
 			
 			// Add a link to agent's tickets in the toolbar
