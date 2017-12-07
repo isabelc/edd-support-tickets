@@ -1,0 +1,9 @@
+.gitattributes export-ignore
+.gitignore export-ignore
+/bin/ export-ignore
+/tests/ export-ignore
+README.md export-ignore
+*.sh export-ignore
+*.xml export-ignore
+phpunit.xml.dist export-ignore
+*.yml export-ignore
