@@ -38,7 +38,6 @@ class EDD_Support_Tickets_Admin {
 	 *
 	 */
 	private function __construct() {
-
 		add_action( 'plugins_loaded', array( 'EDDSTIX_Editor_Ajax', 'get_instance' ), 11, 0 );
 		add_action( 'wp_ajax_eddstix_edit_reply', 'eddstix_edit_reply_ajax' );
 		add_action( 'wp_ajax_eddstix_mark_reply_read', 'eddstix_mark_reply_read_ajax' );
@@ -126,7 +125,6 @@ class EDD_Support_Tickets_Admin {
 	 * @return    object    A single instance of this class.
 	 */
 	public static function get_instance() {
-
 		// If the single instance hasn't been set, set it now.
 		if ( null == self::$instance ) {
 			self::$instance = new self;
@@ -162,7 +160,6 @@ class EDD_Support_Tickets_Admin {
 	 * @return boolean True if the main query was modified, false otherwise
 	 */
 	public function filter_ticket_list( $query ) {
-
 		global $pagenow, $current_user;
 
 		// If it's not the admin ticket list, return
@@ -231,14 +228,11 @@ class EDD_Support_Tickets_Admin {
 	 * @return null Return early if no settings page is registered.
 	 */
 	public function enqueue_admin_scripts() {
-
 		if ( ! eddstix_is_plugin_page() ) {
 			return;
 		}
-
 		wp_enqueue_style( 'eddstix-select2', EDDSTIX_URL . 'assets/admin/css/vendor/select2.min.css', null, '3.5.2', 'all' );
 		wp_enqueue_style( 'eddstix-admin-styles', EDDSTIX_URL . 'assets/admin/css/admin.css', array( 'eddstix-select2' ), EDDSTIX_VERSION );
-
 		if ( 'edd_ticket' == get_post_type() ) {
 			wp_dequeue_script( 'autosave' );
 		}
@@ -261,7 +255,6 @@ class EDD_Support_Tickets_Admin {
 	 * @return void
 	 */
 	public function create_pages() {
-
 		$options = get_option( 'eddstix_settings' );
 		$update = false;
 
@@ -328,7 +321,6 @@ class EDD_Support_Tickets_Admin {
 	 * @return array           List of options with ours added
 	 */
 	public function ticket_action_row( $actions, $post ) {
-
 		if ( 'edd_ticket' === $post->post_type ) {
 
 			$status = get_post_status( $post->ID );
@@ -351,7 +343,6 @@ class EDD_Support_Tickets_Admin {
 	 * @return void
 	 */
 	public function admin_notices() {
-
 		if ( isset( $_GET['eddstix-message'] ) ) {
 
 			switch( $_GET['eddstix-message'] ) {
@@ -383,7 +374,6 @@ class EDD_Support_Tickets_Admin {
 	 * @return void
 	 */
 	public function ask_multiple_products() {
-
 		global $pagenow;
 
 		$get = $_GET;
@@ -421,7 +411,6 @@ class EDD_Support_Tickets_Admin {
 	 * @return array          Modified post data for insertion
 	 */
 	public function filter_ticket_data( $data, $postarr ) {
-
 		global $current_user;
 
 		if ( ! isset( $data['post_type'] ) || 'edd_ticket' !== $data['post_type'] ) {
@@ -515,7 +504,6 @@ class EDD_Support_Tickets_Admin {
 	 * @return boolean True if the ticket count was added, false otherwise
 	 */
 	public function open_tickets_count_bubble() {
-
 		if ( false === (bool) eddstix_get_option( 'show_count' ) ) {
 			return false;
 		}
@@ -544,7 +532,6 @@ class EDD_Support_Tickets_Admin {
 	 * ticket status Admin View links.
 	 */
 	public function mod_count_posts( $counts, $type, $perm ) {
-
 		if ( 'edd_ticket' != $type ) {
 			return $counts;
 		}
@@ -619,7 +606,6 @@ class EDD_Support_Tickets_Admin {
 	 * Render the Tickets By Customer page
 	 */
 	public function display_alltickets_page() {
-
 		if ( ! empty( $_GET['ref'] ) ) {
 			if ( 'list' == $_GET['ref'] ) {
 				$backlink = esc_url( admin_url( 'edit.php?post_type=edd_ticket' ) );
@@ -778,7 +764,6 @@ class EDD_Support_Tickets_Admin {
 	 * in the ticket edit screen.
 	 */
 	public function metaboxes() {
-
 		/* Remove the publishing metabox */
 		remove_meta_box( 'submitdiv', 'edd_ticket', 'side' );
 
@@ -846,7 +831,6 @@ class EDD_Support_Tickets_Admin {
 	 * @param  (int) $post_id Current post ID
 	 */
 	public function save_ticket( $post_id ) {
-
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE || wp_is_post_revision( $post_id ) ) {
 			return;
 		}
@@ -981,7 +965,6 @@ class EDD_Support_Tickets_Admin {
 	 * @return void
 	 */
 	public function mark_replies_read( $reply_id, $data ) {
-
 		$replies = eddstix_get_replies( intval( $data['post_parent'] ), 'unread' );
 
 		foreach ( $replies as $reply ) {
@@ -1000,7 +983,6 @@ class EDD_Support_Tickets_Admin {
 	 * @return void
 	 */
 	public function delete_ticket_dependencies( $post_id ) {
-
 		/* First of all we remove this action to avoid creating a loop */
 		remove_action( 'before_delete_post', array( $this, 'delete_ticket_replies' ), 10, 1 );
 
@@ -1029,7 +1011,6 @@ class EDD_Support_Tickets_Admin {
 	}
 
 	public function system_tools() {
-
 		if ( ! isset( $_GET['tool'] ) || ! isset( $_GET['_nonce'] ) ) {
 			return false;
 		}
