@@ -443,22 +443,6 @@ function eddstix_get_registered_settings() {
 					'desc' 		=> __( 'Delete ALL plugin data on uninstall? This cannot be undone.', 'edd-support-tickets' )
 				)
 			)
-		),
-		'license'	=> apply_filters( 'eddstix_settings_license',
-			array(
-				array(
-					'id'	=> 'license_settings_header',
-					'type' 	=> 'descriptive_text',
-					'desc'	=> sprintf( __( 'Enter your EDD Support Tickets license key here to receive version updates. If your license key has expired, please %1$srenew your license%2$s.', 'edd-support-tickets' ),
-						'<a href="https://cosmicplugins.com/faq#jl-licenserenew" target="_blank">',
-						'</a>' )
-				),
-				array(
-					'name' 		=> __( 'License Key', 'edd-support-tickets' ),
-					'id' 		=> 'license_key',
-					'type' 		=> 'license_key'
-				),
-			)
 		)
 	);
 

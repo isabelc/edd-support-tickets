@@ -3,7 +3,7 @@
 Plugin Name: EDD Support Tickets
 Plugin URI:	https://cosmicplugins.com/downloads/edd-support-tickets/
 Description: Support ticket system which allows access only to your Easy Digital Downloads customers.
-Version: 1.2
+Version: 1.2.1.alpha.8
 Author:	Isabel Castillo
 Author URI:	http://isabelcastillo.com
 License: GPL2
@@ -38,14 +38,6 @@ if ( ! defined( 'EDDSTIX_URL' ) ) {
 }
 if ( ! defined( 'EDDSTIX_PATH' ) ) {
 	define( 'EDDSTIX_PATH', plugin_dir_path( __FILE__ ) );
-}
-// the URL of the site with EDD installed
-if ( ! defined( 'EDDSTIX_COSMICPLUGINS_URL' ) ) {
-	define( 'EDDSTIX_COSMICPLUGINS_URL', 'https://cosmicplugins.com' );
-}
-// the name of your product. Value should match the download name in EDD exactly
-if ( ! defined( 'CP_EDDSUPPORTTICKETS_NAME' ) ) {
-	define( 'CP_EDDSUPPORTTICKETS_NAME', 'EDD Support Tickets' );
 }
 
 /**
@@ -95,10 +87,6 @@ if ( ! is_admin() ) {
 	require_once EDDSTIX_PATH . 'includes/admin/class-admin-editor-ajax.php';
 	require_once EDDSTIX_PATH . 'includes/admin/class-admin.php';
 	require_once EDDSTIX_PATH . 'includes/admin/customers.php';
-	if( ! class_exists( 'EDD_SL_Plugin_Updater' ) ) {
-		include EDDSTIX_PATH . 'includes/admin/EDD_SL_Plugin_Updater.php';
-	}
-	require_once EDDSTIX_PATH . 'includes/admin/license-handler.php';
 	add_action( 'plugins_loaded', array( 'EDD_Support_Tickets_Admin', 'get_instance' ) );
 	// Add link to plugin row
 	add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( 'EDD_Support_Tickets_Admin', 'settings_page_link' ) );
