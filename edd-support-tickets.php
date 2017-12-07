@@ -1,17 +1,17 @@
 <?php
 /*
 Plugin Name: EDD Support Tickets
-Plugin URI:	https://cosmicplugins.com/downloads/edd-support-tickets/
+Plugin URI:	https://isabelcastillo.com/free-plugins/edd-support-tickets
 Description: Support ticket system which allows access only to your Easy Digital Downloads customers.
-Version: 1.2.1.alpha.8
+Version: 1.2.1
 Author:	Isabel Castillo
-Author URI:	http://isabelcastillo.com
+Author URI:	https://isabelcastillo.com
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: edd-support-tickets
 Domain Path: languages
 
-Copyright 2016 Isabel Castillo
+Copyright 2016-2017 Isabel Castillo
 
 EDD Support Tickets is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ along with EDD Support Tickets. If not, see <http://www.gnu.org/licenses/>.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 if ( ! defined( 'EDDSTIX_VERSION' ) ) {
-	define( 'EDDSTIX_VERSION', '1.2' );// @todo update
+	define( 'EDDSTIX_VERSION', '1.2.1' );// @todo update
 }
 if ( ! defined( 'EDDSTIX_URL' ) ) {
 	define( 'EDDSTIX_URL', plugin_dir_url( __FILE__ ) );
